@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SM Tool</title>
+        <!-- favicon -->
+        <link rel="icon" href="{{ url_for('static', filename='images/logo_tech.png') }}"/>
+        <script type="text/javascript" charset="utf-8"></script>
+
+        <!-- Jquery -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-2.1.3.min.js') }}"></script>
+        <!-- ICheck -->
+        <link href="static/css/skins/all.css?v=1.0.2" rel="stylesheet">
+        <script src="static/js/icheck.js?v=1.0.2"></script>
+        <!-- BS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }} ">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+        <!-- BS Select -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-select.min.css') }} ">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap-select.min.js') }} "></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/moment.js') }} "></script>
+        
+        <!-- Tabs -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }} " />
+        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/demo.css') }} " /> -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tabs.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tabstyles.css') }} " />
+        <script type="text/javascript" src="{{ url_for('static', filename='js/modernizr.custom.js') }} "></script>
+        
+        <!-- General -->
+        <style type="text/css">
+            body {font-size: 120%; padding: 1em;margin-bottom: 5vh;background-color: white}
+            /*a {color: blue}*/
+            .form-control, .btn, .label {border-radius: 0px !important}
+            ::-webkit-scrollbar {display: none}  /*Disable scrollbar of Browser*/
+            .btn-success {background-color: #2CC185} 
+            .btn-success:hover {background-color: #2cc15e !important} 
+            .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+                background-color: #73879C;
+            }
+            a {
+                color: white;
+            }
+        </style>
+
+
+    </head>
+    <script type="text/javascript">
+        function disable_btn(e) {if ((e.which || e.keyCode) == 188 || (e.which || e.keyCode) == 69) e.preventDefault()}            
+    </script>
+    <body>
+
+            <div class="container-fluid color_header">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="color: white;font-size: 180%;font-weight: bold"><span type="button" id="open_sidebar" style="cursor:pointer" onclick="openNav()">iSmL</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="topNavBar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a><span class="glyphicon glyphicon-user"></span>{{session['name']}}</a></li>
+                        <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+                        <li style="width: 5px"></li>
+                    </ul>
+                </div>
+            </div>
+   
+    {% block body %}
+    {% endblock %}
+    </body>
+</html>

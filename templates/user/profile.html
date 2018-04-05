@@ -1,0 +1,42 @@
+{% extends "tool_calculate_template/layout_check_gia.html" %}
+
+{% block title %} Dashboard 1 {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <style type="text/css">
+    .inline_modal {display: inline-block;width: 49.5%;padding: 10px; vertical-align: top}
+    .inline_modal_lg {display: inline-block;width: 90.5%;padding: 10px}
+    .inline_modal_3 {display: inline-block;width: 33%;padding: 10px;height: 6vh;}
+    .inline_label {display: inline-block !important ;width: 30% !important}
+    .inline_label_sm {display: inline-block !important ;width: 20% !important}
+    
+    .inline_select_input {display: inline-block !important ;width: 68% !important}
+    .label_value {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #901e1d;
+        font-size: 150%;
+    }
+
+  </style>
+{% endblock stylesheets %}
+
+
+{% block content %}
+<script type=text/javascript>
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+  <div class="right_col" role="main" style="">
+    <!-- top tiles -->
+    <div class="row tile_count" style="">
+          
+    </div>
+
+    <!-- /top tiles -->    
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super()}}
+    
+{% endblock javascripts %}

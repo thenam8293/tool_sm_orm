@@ -1,0 +1,146 @@
+<style type="text/css">
+    li {
+        color: black
+    }
+    .gach_dong {
+        color: #901e1d; margin-right: 10px;
+    }
+    .div_dong {
+        color: black; margin: 10px 30px;font-size: 120%;
+    }
+    .rainbow2 {
+        background-image: -webkit-linear-gradient(left, black, #901e1d, black); /* For Chrome and Safari */
+        background-image:    -moz-linear-gradient(left, black, #901e1d, black); /* For old Fx (3.6 to 15) */
+        background-image:     -ms-linear-gradient(left, black, #901e1d, black); /* For pre-releases of IE 10*/
+        background-image:      -o-linear-gradient(left, black, #901e1d, black); /* For old Opera (11.1 to 12.0) */
+        background-image:         linear-gradient(to right, black, #901e1d, black); /* Standard syntax; must be last */
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    .rainbow3 {
+        background-image: -webkit-linear-gradient(left, orange, black, black); /* For Chrome and Safari */
+        background-image:    -moz-linear-gradient(left, orange, black, black); /* For old Fx (3.6 to 15) */
+        background-image:     -ms-linear-gradient(left, orange, black, black); /* For pre-releases of IE 10*/
+        background-image:      -o-linear-gradient(left, orange, black, black); /* For old Opera (11.1 to 12.0) */
+        background-image:         linear-gradient(to right, orange, black, black); /* Standard syntax; must be last */
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    .rainbow {
+
+      background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+      background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+      color:transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+</style>
+<div id="intro">
+    <div>
+        <h2 style="font-weight: bold;" class="">iJupiter </h2>
+    </div>
+    <div>
+        <h3 class="rainbow2">Giải pháp tư vấn giá thông minh (Intelligent Consulting Solution)</h3>
+    </div>
+    <hr style="border-top: 1px solid black" width="68%" align="left">
+    <div>
+        <h4 class="" style="color: #262626;">
+            iJupiter cung cấp cho khách hàng công cụ online tư vấn giá trị thị trường của Bất động sản cập nhật từng thời điểm:
+        </h4>
+    </div>
+    
+        <div class="div_dong"><span class="fa fa-mail-forward gach_dong"></span>Đất thổ cư</div>
+        <div class="div_dong"><span class="fa fa-mail-forward gach_dong"></span>Đất dự án (Chung cư, Biệt thự, Shophouse, Officetel,…)</div>
+        <div class="div_dong"><span class="fa fa-mail-forward gach_dong"></span>Khung giá đất Nhà nước ban hành</div>
+        <div class="div_dong"><span class="fa fa-mail-forward gach_dong"></span>Thông tin quy hoạch chi tiết </div>
+        <div class="div_dong"><span class="fa fa-mail-forward gach_dong"></span>ROA – Tỷ suất lợi nhuận trên tài sản…</div>
+    
+</div>
+
+
+<form id="input_form_quy_hoach" method="POST" style="display: none;">
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <!-- TITLE -->
+            <div class="x_title">
+                <h2>THÔNG TIN QUY HOẠCH</h2>
+                
+                <div class="clearfix"></div>
+            </div>
+            <!-- CONTENT -->
+            <div class="x_content">
+                <div class="collapse-group" style="margin-top: 2vh;height: 100vh">
+                    <!-- TT BDS -->
+                       <div class="panel panel-default">
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a id="title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_One" aria-expanded="true" aria-controls="collapseBDS_tho_cu_One" style="padding: 10px 15px !important"> Thông tin chung BĐS</a>
+                               </h4>
+                           </div>
+                           <div class="panel-body">
+                               <!-- <div class="inline_modal" id="div_dia_chi_tt_quy_hoach">
+                                   <label class="inline_label" for="dia_chi_tt_quy_hoach">Địa chỉ</label>
+                                   <select id="dia_chi_tt_quy_hoach" class="form-control inline_select_input selectpicker" name="dia_chi_tt_quy_hoach" title="" data-live-search="true">
+
+                                   </select>
+                               </div>  --> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tinh_thanh_tt_quy_hoach" style="">Tỉnh/Thành</label>
+                                   <select id="tinh_thanh_tt_quy_hoach" name="tinh_thanh_tt_quy_hoach" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                        {% for i in list_tinh_thanh %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="quan_huyen_tt_quy_hoach" style="">Quận/Huyện</label>
+                                   <select id="quan_huyen_tt_quy_hoach" name="quan_huyen_tt_quy_hoach" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="ten_duong_tt_quy_hoach" style="">Đường Phố</label>
+                                   <select id="ten_duong_tt_quy_hoach" name="ten_duong_tt_quy_hoach" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tuyen_duong_tt_quy_hoach" style="">Tuyến đường</label>
+                                   <select id="tuyen_duong_tt_quy_hoach" name="tuyen_duong_tt_quy_hoach" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                   
+                               <div class="inline_modal">
+                                   <label class="inline_label vi_tri_pop_tt_quy_hoach" for="vi_tri_bds_tt_quy_hoach" style="">Vị trí
+                                   </label>
+                                   <select id="vi_tri_bds_tt_quy_hoach" name="vi_tri_bds_tt_quy_hoach" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select> 
+                                                  
+                               </div>              
+
+                           </div>
+                       </div>
+
+                       <div class="panel panel-default"  id="result_quy_hoach" style="display: none;">
+                          <div class="panel-heading color_panel" role="tab" id="">
+                              <h4 class="panel-title">
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> Thông tin quy hoạch </a>
+                              </h4>
+                          </div>
+                          <div class="panel-body">
+                               <div class="inline_modal_lg float-label-control" style="height: 8vh;">
+                                   <!-- <label class="inline_label" for="gia_tri_tai_san_tt_quy_hoach" style="vertical-align: top;"></label> -->
+                                   <label class="label_value" id="gia_tri_tai_san_tt_quy_hoach" style="font-size: 180%"></label>
+
+                                   <!-- <input type="text" id="gia_tri_tai_san_tt_quy_hoach" class="form-control inline_select_input" name="gia_tri_tai_san_tt_quy_hoach"> -->
+                              </div>
+                          </div>
+                       </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>

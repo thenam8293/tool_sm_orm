@@ -1,0 +1,11 @@
+.header {padding: 7px; font-weight: bold;font-size: 110% !important}
+table.table-template {width: 100%;table-layout: fixed;}
+table.table-template > thead > tr > th {padding: 7px; text-align: center;}
+table.table-template > tbody > tr > td {padding-left: 7px}
+.fake-input {visibility: hidden;}
+.panel-body {padding: 30px 35px 20px 35px !important } 
+.input_label {font-weight: bold; }
+.input_label_fix {font-weight: bold; color: black; /*background-color : #a6a6a6 !important;*/ }
+div.btnNext-Previous {float: right !important;}
+::-webkit-scrollbar {display: none; }
+textarea {resize: none;}

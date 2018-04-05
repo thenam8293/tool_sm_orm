@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <link rel="shortcut icon" href="#" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% endblock meta %}
+
+      <title>ADMIN</title>
+
+      {% block stylesheets %}
+        <!-- Bootstrap -->
+        <link href="{{ url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="{{ url_for('static', filename='vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="{{ url_for('static', filename='vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="{{ url_for('static', filename='build/css/custom.css') }}" rel="stylesheet">
+        <!-- favicon -->
+        <link rel="icon" href="{{ url_for('static', filename='images/logo_tech.png') }}"/>
+      {% endblock stylesheets %}
+      
+            {% block javascripts %}
+        <!-- jQuery -->
+        <script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ url_for('static', filename='vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <!-- FastClick -->
+        <script src="{{ url_for('static', filename='vendors/fastclick/lib/fastclick.js') }}"></script>
+        <!-- ICheck -->
+        <link href="static/css/skins/all.css?v=1.0.2" rel="stylesheet">
+        <script src="static/js/icheck.js?v=1.0.2"></script>
+
+        <!-- BS Select -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-select.min.css') }} ">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap-select.min.js') }} "></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/moment.js') }} "></script>
+      {% endblock %}
+
+      
+      
+      
+    {% endblock head %}
+  </head>
+<style type="text/css">
+    
+    /* COLOR SIDEBAR */
+        body {
+            background-color: white; 
+        }
+        .left_col {
+            background-color: white;
+        }
+
+        .nav.side-menu>li>a, .nav.child_menu>li>a, .button_custom {
+            color: black
+        }
+        .button_custom {
+            background-color: transparent; border: none; outline: none; font-weight: bold;height: 4vh; padding: 0;
+            padding-top: 2px;
+
+        }
+    /* COLOR SIDEBAR TOP */
+         .site_title ,.nav_title{
+            background-color: #901e1d;
+            color: white !important;
+         }
+    /* ACTIVE*/
+        .nav.side-menu>li.active>a, .nav.child_menu li.active {
+            background: linear-gradient(#a6a6a6, #d9d9d9), #901e1d;color: black
+
+        }
+
+
+
+
+        .nav.side-menu>li.current-page, .nav.side-menu>li.active,
+        .nav.child_menu li.active, .nav.child_menu li.active-sm, .nav-sm .nav.child_menu li.active {border-right: 5px solid transparent;}
+        .active>.button_custom{color: black;}
+    /*HOVER LI*/
+        .nav.side-menu>li.active>a:hover {
+            color: black !important;
+        }
+        .nav.side-menu>li>a:hover {
+            color: black !important;
+            background-color: #b3b3b3;
+        }
+        .nav.child_menu li:hover{
+            background-color: #b3b3b3;
+        }
+    /* DAU MUC */
+        .nav-md ul.nav.child_menu li:before {background-color: #4d4d4d}
+        .nav-md ul.nav.child_menu li:after {border-color: #4d4d4d}
+        /**/
+        li[id^='btn_'] {background-color: white}
+        label {
+            color: black
+        }
+    /* COLOR PANEL */
+    .color_panel {background-color: #901e1d !important; color: white !important}
+    .color_header {background-color: #2A3F54;}
+    h2 {
+        color: #901e1d
+    }
+ 
+</style>
+
+
+  <body class="{% block body_class %}nav-md {% endblock body_class %}">
+    {% block body %}
+      <div class="container body">
+        <div class="main_container">
+        <!-- SIDEBAR MENU -->
+          {% block sidebar %}
+            <div class="col-md-3 left_col {% block sidebar_class %} {% endblock sidebar_class %}">
+              <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                  <a href="" style="" id="ij"  class="site_title">
+                  <!-- <span class="fa fa-usd"></span> -->
+                  <!-- <span class="fa fa-won" style="transform: rotate(180deg);"></span> -->
+
+                  <span>iJupiter</span></a>
+
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                  <div class="profile_pic">
+                    <!-- ANH ADMIN -->
+                    <!-- <img src="/static/images/sml.jpg" width="" alt="..." class="img-circle profile_img"> -->
+                  </div>
+                  <div class="profile_info">
+                    <span style="color: black;">Welcome </span>
+                    <h2 style="color: #901e1d; font-weight: bold;font-size: 120%">{{session['name']}}</h2>
+                  </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                  <div class="menu_section">
+                    
+                    <ul class="nav side-menu">
+                      
+
+                      <!-- GIA THI TRUONG -->
+                      <li><a id="check_gia_thi_truong"><i class="fa fa-building"></i>GIÁ THỊ TRƯỜNG <span class="fa fa-chevron-down" style="color:black;"></span></a>
+                        <ul class="nav child_menu">
+                            <li id="btn_tho_cu">
+                                <button type="button" class="button_custom" > Bất động sản thổ cư </button>
+                            </li>
+                            <li id="btn_chung_cu">
+                                <button type="button" class="button_custom" >Căn hộ chung cư</button>
+                            </li>
+                            <li id="btn_biet_thu">
+                                <button type="button" class="button_custom" >Shophouse - Biệt thự liền kề</button>
+                            </li>
+                        </ul>
+                      </li>
+                      <!-- KHUNG GIA NAH NUOC -->
+                      <li><a id="btn_uy_ban"><i class="fa fa-home"></i> KHUNG GIÁ NHÀ NƯỚC </a>
+                        
+                      </li>
+
+                      <!-- THONG TIN QUY HOACH -->
+                      <li><a id="btn_quy_hoach"><i class="fa fa-bar-chart"></i> THÔNG TIN QUY HOẠCH </a>
+                        
+                      </li>
+                      <!-- adminnnnn -->
+                      {% if session['role'] == 'Admin' %}
+                        <li><a href="ad_cnb_min"><i class="fa fa-gear (alias)"></i> ADMINISTRATOR </a>                       
+                        </li>
+                       {% endif %} 
+                    </ul>
+                  </div>
+                
+                </div>
+                <script type="text/javascript">
+                    $(`[id^='btn_']`).click(function() {
+                        // alert($(this).attr("id"))
+                        $('.active').removeClass('active')
+                        $(this).addClass("active")
+                        let id_form = $(this).attr("id").split("btn_")[1]
+                        $(`#input_form_${id_form}`).css('display', '')
+                        $(`#intro`).css('display', 'none')
+
+                        $(`[id^='input_form_'][id!='input_form_${id_form}']`).css('display', 'none')
+
+
+                    })
+                    $("#check_gia_thi_truong").click(function() {
+
+                        $("#input_form_quy_hoach, #input_form_uy_ban").css('display', 'none')
+                    })
+                </script>
+                <!-- /sidebar menu -->
+                
+              </div>
+
+            </div>
+          {% endblock sidebar %}
+
+          {% block top_navigation %}
+            <div class="top_nav">
+              {% include "tool_calculate_template/top_navigation_check_gia.html" %}
+            </div>
+          {% endblock top_navigation %}
+
+          {% block content %}
+            <!-- {{ content }} -->            
+          {% endblock content %}
+
+        </div>
+      </div>
+
+
+      <!-- Custom Theme Scripts -->
+      <script src="{{ url_for('static', filename='build/js/custom.js') }}"></script>
+    {% endblock body %}
+  </body>
+</html>

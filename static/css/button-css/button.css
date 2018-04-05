@@ -1,0 +1,78 @@
+        @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:700";
+        *,
+        *::before,
+        *::after {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        a {
+          color: #333;
+          text-decoration: none;
+          transition: 0.3s all ease;
+        }
+        a:hover {
+          color: #B15947;
+          text-decoration: none;
+        }
+        a:focus {
+          text-decoration: none;
+        }
+        a:active {
+          color: #FFF;
+        }
+        .flex {
+          min-height: 500vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .bttn {
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+          position: relative;
+        }
+        .bttn:after {
+          transition: 0.3s all ease;
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          border-radius: 3px;
+          border: 3px solid #B15947;
+        }
+        .bttn:before {
+          content: '';
+          position: absolute;
+          border-radius: 3px;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          background: transparent;
+          z-index: -1;
+        }
+        .bttn:hover:after {
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        .bttn:active {
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+        .bttn:active:before {
+          background-color: #f1481b;
+        }
+        .bttn:active:after {
+          border-color: #f1481b;
+        }

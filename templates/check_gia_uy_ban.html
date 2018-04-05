@@ -1,0 +1,212 @@
+<form id="input_form_uy_ban" method="POST" style="display: none;">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <!-- TITLE -->
+            <div class="x_title">
+                <h2>KHUNG GIÁ NHÀ NƯỚC</h2>
+                
+                <div class="clearfix"></div>
+            </div>
+            <!-- CONTENT -->
+            <div class="x_content">
+                <div class="collapse-group" style="margin-top: 2vh;height: 100vh">
+                    <!-- TT BDS -->
+                       <div class="panel panel-default">
+                            
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a id="title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_One" aria-expanded="true" aria-controls="collapseBDS_tho_cu_One" style="padding: 10px 15px !important"> THÔNG TIN CHUNG BĐS</a>
+                               </h4>
+                           </div>
+                           <div class="panel-body">
+                               <!-- <div class="inline_modal" id="div_dia_chi1_uy_ban">
+                                   <label class="inline_label" for="dia_chi1_uy_ban">Địa chỉ</label>
+                                   <select id="dia_chi1_uy_ban" class="form-control inline_select_input selectpicker" name="dia_chi1_uy_ban" title="" data-live-search="true">
+
+                                   </select>
+                               </div>  --> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tinh_thanh1_uy_ban" style="">Tỉnh/Thành</label>
+                                   <select id="tinh_thanh1_uy_ban" name="tinh_thanh1_uy_ban" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                        {% for i in list_tinh_thanh_uy_ban %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="quan_huyen1_uy_ban" style="">Quận/Huyện</label>
+                                   <select id="quan_huyen1_uy_ban" name="quan_huyen1_uy_ban" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="ten_duong1_uy_ban" style="">Tuyến đường</label>
+                                   <select id="ten_duong1_uy_ban" name="ten_duong1_uy_ban" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tuyen_duong1_uy_ban" style="">Đoạn đường</label>
+                                   <select id="tuyen_duong1_uy_ban" name="tuyen_duong1_uy_ban" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                   
+                               <!-- <div class="inline_modal">
+                                   <label class="inline_label vi_tri_pop1_uy_ban" for="vi_tri_bds1_uy_ban" style="">Vị trí
+                                   </label>
+                                   <select id="vi_tri_bds1_uy_ban" name="vi_tri_bds1_uy_ban" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select> 
+                                                  
+                               </div>    -->           
+
+                           </div>
+                       </div>
+                       <div class="panel panel-default" id="result_gia1_uy_ban" style="display:none;">
+                          <div class="panel-heading color_panel" role="tab" id="">
+                              <h4 class="panel-title">
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> ĐƠN GIÁ UBND BAN HÀNH </a>
+                              </h4>
+                          </div>
+                          <div class="panel-body">
+                               <div class="inline_modal_lg float-label-control" id="div_result" style="height: 8vh;">
+
+                                </div>
+                          </div>
+                       </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+  // QUAN HUYEN AJAX
+      $(document).on('change','[id="tinh_thanh1_uy_ban"]', function() {
+          let tinh_thanh_id = $(this).attr("id")
+          let quan_huyen_id = `quan_huyen1_uy_ban`
+          let ten_duong_id = `ten_duong1_uy_ban`
+          let tuyen_duong_id = `tuyen_duong1_uy_ban`
+
+          // AJAX
+          $.getJSON($SCRIPT_ROOT + '/ajax_get_option_quan_huyen_uy_ban', {
+              tinh_thanh: $(this).val(),
+          }, function(data) { 
+              
+              // empty field                        
+              $(`#${quan_huyen_id}`).empty().prop("disabled",true)
+              $(`#${ten_duong_id}`).empty().prop("disabled",true)
+              $(`#${tuyen_duong_id}`).empty().prop("disabled",true)
+              $("#div_result").empty()
+
+              $.each(data.result, function(i,r) {
+                  $(`#${quan_huyen_id}`).append(`<option>${r}</option>`).prop("disabled",false)
+              })
+              $(`#${quan_huyen_id}`).selectpicker("refresh").selectpicker("val","")
+              $(`#${ten_duong_id}`).selectpicker("refresh").selectpicker("val","")
+              $(`#${tuyen_duong_id}`).selectpicker("refresh").selectpicker("val","")
+
+            })
+            return false;
+      })
+  // DOAN DUONG AJAX
+      $(document).on('change','[id="quan_huyen1_uy_ban"]', function() {
+          let quan_huyen_id = $(this).attr("id")
+          let tinh_thanh_id = `tinh_thanh1_uy_ban`
+          let ten_duong_id = `ten_duong1_uy_ban`
+          let tuyen_duong_id = `tuyen_duong1_uy_ban`
+          empty_field()
+          // AJAX
+          $.getJSON($SCRIPT_ROOT + '/ajax_get_option_duong_pho_uy_ban', {
+              tinh_thanh: $(`#${tinh_thanh_id}`).val(),
+              quan_huyen: $(this).val(),
+
+          }, function(data) { 
+              $(`#${ten_duong_id}`).empty().prop("disabled",true)
+              $(`#${tuyen_duong_id}`).empty().prop("disabled",true)
+              
+              $("#div_result").empty()
+              $.each(data.result, function(i,r) {
+                  $(`#${ten_duong_id}`).append(`<option>${r}</option>`).prop("disabled",false)
+              })
+              $(`#${ten_duong_id}`).selectpicker("refresh").selectpicker("val","")
+              $(`#${tuyen_duong_id}`).selectpicker("refresh").selectpicker("val","")
+
+            });
+            return false;
+      })
+  // TUYEN DUONG AJAX
+  var list_vi_tri = ['Vị trí 1', 'Vị trí 2', 'Vị trí 3', 'Vị trí 4', 'Vị trí 5']
+      $(document).on('change','[id="ten_duong1_uy_ban"]', function() {
+          let ten_duong_id = $(this).attr("id")
+          let tinh_thanh_id = `tinh_thanh1_uy_ban`
+          let quan_huyen_id = `quan_huyen1_uy_ban`
+          let tuyen_duong_id = `tuyen_duong1_uy_ban`
+          $("#div_result").empty()
+          empty_field()
+          // AJAX
+          $.getJSON($SCRIPT_ROOT + '/ajax_get_option_tuyen_duong_uy_ban', {
+              tinh_thanh: $(`#${tinh_thanh_id}`).val(),
+              quan_huyen: $(`#${quan_huyen_id}`).val(),              
+              ten_duong: $(this).val(),
+
+          }, function(data) { 
+              $(`#${tuyen_duong_id}`).empty().prop("disabled",true)
+              $("#div_result").empty()
+              $.each(data.result, function(i,r) {
+                  $(`#${tuyen_duong_id}`).append(`<option>${r}</option>`).prop("disabled",false)
+              })
+              $(`#${tuyen_duong_id}`).selectpicker("refresh").selectpicker("val","")
+              // CHECK DOAN DUONG
+              console.log(data.result[0])
+              if (data.result[0] == '') {
+                
+                    $.each(data.value[0], function(i, r) {
+                      if( r != 'NULL') {
+                        
+                          $("#div_result").append(`
+                              <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                              <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
+                      }
+                    })
+                    $("#result_gia1_uy_ban").css('display', '')           
+              } 
+            })
+            return false;
+      })
+
+  // VI TRI BDS AJAX
+    
+      $(document).on('change','[id="tuyen_duong1_uy_ban"]', function() {
+          let tuyen_duong_id = $(this).attr("id")
+          let tinh_thanh_id = `tinh_thanh1_uy_ban`
+          let quan_huyen_id = `quan_huyen1_uy_ban`
+          let ten_duong_id = `ten_duong1_uy_ban`
+          $("#div_result").empty()
+          empty_field()
+          // AJAX
+
+          $.getJSON($SCRIPT_ROOT + '/ajax_get_option_vi_tri_bds_uy_ban', {
+              tinh_thanh: $(`#${tinh_thanh_id}`).val(),
+              quan_huyen: $(`#${quan_huyen_id}`).val(),
+              ten_duong: $(`#${ten_duong_id}`).val(),            
+              tuyen_duong: $(this).val(),
+
+          }, function(data) { 
+              console.log(data.result)
+              $.each(data.result[0], function(i, r) {
+                    console.log(r)
+
+                if( r != 'NULL') {                    
+                    $("#div_result").append(`
+                        <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                        <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
+                }
+              })
+                $("#result_gia1_uy_ban").css('display', '')
+            });
+            return false;
+      })
+</script>
+</form>

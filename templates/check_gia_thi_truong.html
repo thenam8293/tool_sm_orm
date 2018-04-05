@@ -1,0 +1,800 @@
+
+<form id="input_form_tho_cu" method="POST" style="display: none;">
+<!-- MODAL WARNING -->
+    <button type="button" id="btn_warning_box" class="btn btn-info btn-lg" data-toggle="modal" data-target="#warning_box" style="display:none;">Open Modal</button>
+    <div class="modal fade" id="warning_box" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="width: 30vw;margin: 0 auto;margin-top: 25vh;">
+                <div class="modal-header" style="text-align:center;">
+                    <button type="button" class="close" data-dismiss="modal" style="outline: none;">&times;</button>
+                    <div style="font-weight: bold;color: red; font-size: 150%">WARNING</div>
+                </div>
+                <div class="modal-footer" style="text-align:center;color: black">
+                    
+                    <div>Thông tin không hợp lệ</div>
+                    <div>Vui lòng nhập thông tin phù hợp với Đặc điểm vị trí</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- THO CU -->
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="x_panel">
+            <!-- TITLE THO CU-->
+            <div class="x_title">
+                <h2>BẤT ĐỘNG SẢN THỔ CƯ</h2>                    
+                <div class="clearfix"></div>
+            </div>
+
+            <!-- CONTENT THO CU-->
+            <div class="x_content">
+                <!-- BDS NHA THO CU -->
+                <div class="collapse-group" id="div_main_tho_cu" style="margin-top: 2vh;display: ;">
+                    <!-- TT BDS -->
+                       <div class="panel panel-default">
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a id="title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_One" aria-expanded="true" aria-controls="collapseBDS_tho_cu_One" style="padding: 10px 15px !important"> THÔNG TIN CHUNG BĐS</a>
+                               </h4>
+                           </div>
+                           <div class="panel-body">
+                               <!-- <div class="inline_modal" id="div_dia_chi_thi_truong">
+                                   <label class="inline_label" for="dia_chi_thi_truong">Địa chỉ</label>
+                                   <select id="dia_chi_thi_truong" class="form-control inline_select_input selectpicker" name="dia_chi_thi_truong" title="" data-live-search="true">
+
+                                   </select>
+                               </div>  --> 
+
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tinh_thanh_thi_truong" style="">Tỉnh/Thành</label>
+                                   <select id="tinh_thanh_thi_truong" name="tinh_thanh_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                        {% for i in list_tinh_thanh %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="quan_huyen_thi_truong" style="">Quận/Huyện</label>
+                                   <select id="quan_huyen_thi_truong" name="quan_huyen_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div> 
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="ten_duong_thi_truong" style="">Tuyến đường</label>
+                                   <select id="ten_duong_thi_truong" name="ten_duong_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                
+                               <div class="inline_modal">
+                                   <label class="inline_label" for="tuyen_duong_thi_truong" style="">Đoạn đường</label>
+                                   <select id="tuyen_duong_thi_truong" name="tuyen_duong_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select>                   
+                               </div>                   
+                               <div class="inline_modal">
+                                   <label class="inline_label vi_tri_pop_thi_truong" for="vi_tri_bds_thi_truong" style="">Vị trí
+                                   </label>
+                                   <select id="vi_tri_bds_thi_truong" name="vi_tri_bds_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                   </select> 
+                                                  
+                               </div>              
+                               <div class="inline_modal float-label-control">
+                                   <label class="inline_label" for="dac_diem_vi_tri_thi_truong" style="margin-top: 2px; vertical-align: top;">Đặc điểm vị trí</label>
+                                   <label class="" id="dac_diem_vi_tri_thi_truong" style=" width: 65%"></label>
+                               </div>
+                           </div>
+                       </div>
+
+                    <!-- TT DIEU CHINH -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading color_panel" role="tab" id="">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> THÔNG TIN CHI TIẾT BĐS </a>
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                 <div class="inline_modal float-label-control">
+                                     <label class="inline_label" for="dien_tich_dat_thi_truong">Diện tích đất <span style="font-style: italic;font-size: 90%;font-weight: normal;">(m2)</span></label>
+                                     <input type="number" id="dien_tich_dat_thi_truong" name="dien_tich_dat_thi_truong" class="form-control inline_select_input">
+                                 </div>
+                                 
+                                 <div class="inline_modal float-label-control">
+                                     <label class="inline_label" for="do_rong_mat_tien_thi_truong">Độ rộng mặt tiền <span style="font-style: italic;font-size: 90%;font-weight: normal;">(m)</span></label>
+                                     <input type="number" id="do_rong_mat_tien_thi_truong" name="do_rong_mat_tien_thi_truong" class="form-control inline_select_input">
+                                 </div>
+                                 <div class="inline_modal float-label-control">
+                                    <label class="inline_label" for="hinh_dang">Hình dáng</label>
+                                    <!-- <input type="text" id="hinh_dang" name="hinh_dang" class="form-control inline_select_input"> -->
+                                    <select id="hinh_dang" name="hinh_dang" class="form-control inline_select_input selectpicker" title="Chưa lựa chọn">
+                                        <option disabled="">Chưa lựa chọn</option>                            
+                                        <option>Vuông vức</option>
+                                        <option>Tương đối vuông vức</option>
+                                        <option>Không vuông vức (Tóp hậu, chiều dài gấp 7 lần chiều rộng trở lên)</option>
+                                        <option>Hình chữ L (mặt hậu lớn gấp trên 2 lần mặt tiền)</option>
+                                        <option>Tam giác/đa giác nhiều góc cạnh</option>
+                                    </select>
+
+                                 </div>
+                                 <div class="inline_modal float-label-control" id="div_do_rong_ngo_thi_truong" style="display: none;">
+                                     <label class="inline_label" for="do_rong_ngo_thi_truong">Độ rộng ngõ nhỏ nhất vào tài sản <span style="font-style: italic;font-size: 90%;font-weight: normal;">(m)</span></label>
+                                     <input type="number" id="do_rong_ngo_thi_truong" name="do_rong_ngo_thi_truong" class="form-control inline_select_input">
+                                 </div>
+                                 <div class="inline_modal float-label-control" id="div_kcach_truc_chinh_thi_truong" style="display: none;">
+                                     <label class="inline_label" for="kcach_truc_chinh_thi_truong">Khoảng cách đến trục chính <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (m) </label>
+                                     <input type="number" id="kcach_truc_chinh_thi_truong" name="kcach_truc_chinh_thi_truong" class="form-control inline_select_input">
+                                 </div>
+                                 
+                            </div>
+                        </div>
+
+                    <!-- YEU TO LOI THE -->
+                        <div class="panel panel-default">
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important;"> YẾU TỐ LỢI THẾ </a>
+                               </h4>
+                           </div>
+                           <div class="panel-body" id="div_select_loi_the">
+                                
+                           </div>
+                        </div>
+                        
+                    <!-- YEU TO BAT LOI -->
+                        <div class="panel panel-default">
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> YẾU TỐ BẤT LỢI </a>
+                               </h4>
+                           </div>
+                           <div class="panel-body" id="div_select_bat_loi">
+
+                           </div>
+                        </div>
+                        
+                    <!-- KET QUA -->
+                        <div class="panel panel-default" id="result_bds_tho_cu" style="display: none;">
+                           <div class="panel-heading color_panel" role="tab" id="">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> KẾT QUẢ </a>
+                               </h4>
+                           </div>
+                           <div class="panel-body">
+                                <button type="button" style="display: none;" id="get_result">SUBMIT</button>
+                                <div class="inline_modal float-label-control">
+                                    <label class="inline_label" for="">Đơn giá tham khảo <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2)</span></label>
+                                    <label class="inline_select_input label_value" for="" id="gia_sau"></label>                        
+                                </div>
+                           </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+    <!-- DISABLE BTN COMMA -->
+    <script type="text/javascript">
+        function disable_btn(e) {if ((e.which || e.keyCode) == 188 || (e.which || e.keyCode) == 69) e.preventDefault()}           
+        $(`input[type='number']`).on("keydown",disable_btn);
+    </script>
+
+
+    <!-- VALIDATION DK VI TRI -->
+    <script type="text/javascript">
+           function between_out(x, min, max) {
+             return x >= min && x <= max
+           }
+           function between_left(x, min, max) {
+             return x >= min && x < max
+           }
+           function between_right(x, min, max) {
+             return x > min && x <= max
+           }
+           function between_in(x, min, max) {
+             return x > min && x < max
+           }
+           // ON CHANGE SUBMIT
+           $("#do_rong_ngo_thi_truong").change(function() {
+                $("#gia_sau").text('')
+                if($("#kcach_truc_chinh_thi_truong").val() !='') {
+                    dieu_kien_vi_tri()
+                }
+           })
+           $("#kcach_truc_chinh_thi_truong").change(function() {
+                $("#gia_sau").text('')
+                if($("#do_rong_ngo_thi_truong").val() !='') {
+                    dieu_kien_vi_tri()
+                }
+           })
+           $("#dien_tich_dat_thi_truong").change(function() {
+                $("#gia_sau").text('')
+                dieu_kien_vi_tri()
+           })
+           $("#do_rong_mat_tien_thi_truong").change(function() {
+                $("#gia_sau").text('')
+                dieu_kien_vi_tri()
+           })
+           $("#hinh_dang").change(function() {
+                $("#gia_sau").text('')
+                dieu_kien_vi_tri()
+           })
+           $(document).on('ifChanged', `input[id^='check_box_']`, function(event){
+                dieu_kien_vi_tri()
+           })
+
+           // CHECK DIEU KIEN NGO VA TRUC CHINH
+           function dieu_kien_vi_tri() {
+                // CHECK EMPTY FIELD
+                if( $("#dien_tich_dat_thi_truong").val() == '' || $("#do_rong_mat_tien_thi_truong").val() == '' ){
+                    return false
+                }
+                if($("#vi_tri_bds_thi_truong").val() != 'Vị trí 1'){
+                    if( $("#do_rong_ngo_thi_truong").val() == '' || $("#kcach_truc_chinh_thi_truong").val() == '' ){
+                        return false
+                    }
+                }
+
+                var rong_ngo = $("#do_rong_ngo_thi_truong").val()
+                var truc_chinh = $("#kcach_truc_chinh_thi_truong").val()
+                var thanh_pho = $("#tinh_thanh_thi_truong").val()
+                var vi_tri = $("#vi_tri_bds_thi_truong").val()
+
+                if(thanh_pho == 'Hà Nội') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 3.5, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_left(rong_ngo, 2, 3.5)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 2)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Hà Nam') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_in(rong_ngo, 6, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_out(rong_ngo, 3, 6)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 3)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Nghệ An') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 4, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_left(rong_ngo, 2, 4)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 2)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Thái Bình') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 4, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_left(rong_ngo, 2, 4)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 2)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Đà Nẵng') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 4.5, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_left(rong_ngo, 3, 4.5)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_left(rong_ngo, 1.7, 3)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Hải Phòng') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 3, 100) && between_right(truc_chinh, 0, 50)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !((between_in(rong_ngo, 0, 3) && between_right(truc_chinh, 0, 50)) 
+                            || (between_left(rong_ngo, 3, 100) && between_right(truc_chinh, 50, 200))) ){
+                            $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !((between_in(rong_ngo, 0, 3) && between_right(truc_chinh, 50, 1000)) 
+                            || (between_left(rong_ngo, 3, 100) && between_right(truc_chinh, 200, 1000))) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Bắc Ninh') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 5, 100) && between_right(truc_chinh, 0, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !((between_left(rong_ngo, 2, 5)) 
+                            || (between_left(rong_ngo, 5, 100) && between_right(truc_chinh, 100, 1000))) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 2)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Bắc Giang') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 5, 100) && between_in(truc_chinh, 0, 200)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !((between_left(rong_ngo, 3, 5) && between_right(truc_chinh, 100, 1000)) 
+                            || (between_left(rong_ngo, 5, 100) && between_left(truc_chinh, 200, 1000))) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !((between_left(rong_ngo, 3, 5) && between_in(truc_chinh, 100, 1000)) || !(between_in(rong_ngo, 0, 3)) )){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Hải Dương') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 3, 100) && between_in(truc_chinh, 0, 200)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !((between_left(rong_ngo, 2, 3) && between_in(truc_chinh, 100, 1000)) 
+                            || (between_left(rong_ngo, 3, 100) && between_left(truc_chinh, 200, 1000))) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !((between_left(rong_ngo, 2, 3) && between_left(truc_chinh, 100, 1000)) || !(between_in(rong_ngo, 0, 2)) )){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Hồ Chí Minh') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_left(rong_ngo, 5, 100)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !(between_left(rong_ngo, 3, 5)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if( !(between_in(rong_ngo, 0, 3)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+
+                }
+                if(thanh_pho == 'Yên Bái') {
+                    if(vi_tri == 'Vị trí 2') {
+                        if( !(between_in(rong_ngo, 3, 100) && between_right(truc_chinh, 0, 50)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                                $("#btn_warning_box").click()
+                            return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 3') {
+                        if( !((between_out(rong_ngo, 2.5, 3) && between_right(truc_chinh, 0, 50)) 
+                            || (between_in(rong_ngo, 3, 100) && between_right(truc_chinh, 50, 200))) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+                    if(vi_tri == 'Vị trí 4') {
+                        if(!(between_in(rong_ngo, 0, 2.5) && between_right(truc_chinh, 0, 50))
+                            || (between_out(rong_ngo, 2.5, 3) && between_right(truc_chinh, 50, 200))
+                            || (between_in(rong_ngo, 3, 100) && between_in(truc_chinh, 200, 1000)) ){
+                            // alert("Thông tin nhập không hợp lệ.")
+                            $("#btn_warning_box").click()
+                        return false
+                        }
+                    }
+
+                }
+                submit_form()
+           }
+    </script>
+
+    <!-- GET RESULT GIA THI TRUONG -->
+    <script type="text/javascript">
+
+        function submit_form() {
+            
+            // GET VALUE CHECKBOX
+            let list_yeu_to = []
+            $.each($.merge($(`input[id^='check_box_loi_the']`), $(`input[id^='check_box_bat_loi']`)), function(i,r) {
+                if($(this).is(':checked') == true) {
+                    list_yeu_to.push($(this).val())                   
+                }
+            })
+            
+            // SUBMIT AJAX
+            let data_yeu_to = (list_yeu_to.join("|"))
+            $.getJSON($SCRIPT_ROOT + '/ajax_get_result', 
+                $("#input_form_tho_cu").serialize()+'&'+$.param({ 'data_yeu_to': data_yeu_to }), 
+                function(data) { 
+                $("#gia_sau").text(dot_number(Math.round(data.result[1])))
+                $("#result_bds_tho_cu").css("display", "")
+                console.log(data.result)
+              })
+              return false
+        }
+
+        // AUTO SUBMIT
+        $(document).on('click','#get_result', function() {
+           dieu_kien_vi_tri()
+        }) 
+    </script>
+</form>
+
+<!-- CHUNG CU -->
+<form id="input_form_chung_cu" method="POST" style="display: none;">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <!-- TITLE CHUNG CU-->
+                <div class="x_title">
+                    <h2>CĂN HỘ CHUNG CƯ</h2>                    
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- CONTENT CHUNG CU-->
+                <div class="x_content">
+                    <!-- BDS CHUNG CU -->
+                    <div class="collapse-group" id="div_main_Can_ho" style="margin-top: 2vh;height: 50vh;">
+                        <!-- THONG TIN CHUNG BDS -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading color_panel" role="tab" id="">
+                                <h4 class="panel-title">
+                                    <a id="title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_One" aria-expanded="true" aria-controls="collapseBDS_tho_cu_One" style="padding: 10px 15px !important"> THÔNG TIN CHUNG BĐS</a>
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="du_an_cc_thi_truong" style="">Dự án</label>
+                                    <select id="du_an_cc_thi_truong" name="du_an_cc_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                        {% for i in list_can_ho %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="toa_nha_cc_thi_truong" style="">Tòa</label>
+                                    <select id="toa_nha_cc_thi_truong" name="toa_nha_cc_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="tang_cc_thi_truong" style="">Tầng</label>
+                                    <select id="tang_cc_thi_truong" name="tang_cc_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="ma_can_cc_thi_truong" style="">Mã căn</label>
+                                    <select id="ma_can_cc_thi_truong" name="ma_can_cc_thi_truong" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- KET QUA -->
+                            <div class="panel panel-default"  id="result_chung_cu" style="display: none;">
+                               <div class="panel-heading color_panel" role="tab" id="">
+                                   <h4 class="panel-title">
+                                       <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> KẾT QUẢ </a>
+                                   </h4>
+                               </div>
+                               <div class="panel-body">
+                                    <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_dien_tich_cc_thi_truong" style="vertical-align: top;">Diện tích (m2)</label>
+                                        <label class="inline_select_input label_value" id="value_dien_tich_cc_thi_truong"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_loai_dien_tich_cc_thi_truong" style="vertical-align: top;">Loại diện tích</label>
+                                        <label class="inline_select_input label_value" id="value_loai_dien_tich_cc_thi_truong"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_don_gia_cc_thi_truong" style="vertical-align: top;">Đơn giá (đồng/m2)</label>
+                                        <label class="inline_select_input label_value" id="value_don_gia_cc_thi_truong"></label>
+                                        
+                                   </div>
+                                   
+                               </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</form>
+
+
+<!-- BIET THU -->
+
+<form id="input_form_biet_thu" method="POST" style="display: none;">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <!-- TITLE BIET THU-->
+                <div class="x_title">
+                    <h2>SHOPHOUSE - BIỆT THỰ LIỀN KỀ</h2>                    
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- CONTENT BIET THU-->
+                <div class="x_content">
+                    <!-- BDS BIET THU -->
+                    <div class="collapse-group" id="div_main_Biet_thu" style="margin-top: 2vh;">
+                        <!-- THONG TIN CHUNG BDS -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading color_panel" role="tab" id="">
+                                <h4 class="panel-title">
+                                    <a id="title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_One" aria-expanded="true" aria-controls="collapseBDS_tho_cu_One" style="padding: 10px 15px !important"> THÔNG TIN CHUNG BĐS </a>
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="inline_modal">
+
+                                    <label class="inline_label" for="du_an_biet_thu" style="">Dự án</label>
+                                    <select id="du_an_biet_thu" name="du_an_biet_thu" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                        {% for i in list_biet_thu %}
+                                            <option>{{i}}</option>
+                                        {% endfor %}
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="duong_nha_biet_thu" style="">Đường/Dãy/Khu</label>
+                                    <select id="duong_nha_biet_thu" name="duong_nha_biet_thu" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="loai_nha_biet_thu"  data-toggle="tooltip" data-placement="bottom" title="Biệt thự/Liền kề/Shophouse/Condotel/…" style="">Loại nhà</label>
+                                    <select id="loai_nha_biet_thu" name="loai_nha_biet_thu" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                                <div class="inline_modal">
+                                    <label class="inline_label" for="ma_can_biet_thu" style="">Mã căn</label>
+                                    <select id="ma_can_biet_thu" name="ma_can_biet_thu" class="form-control inline_select_input selectpicker" title="" data-live-search="true">
+                                    </select>                   
+                                </div> 
+                            </div>
+                        </div>
+                        <!-- KET QUA -->
+                            <div class="panel panel-default"  id="result_biet_thu" style="display: none;">
+                               <div class="panel-heading color_panel" role="tab" id="">
+                                   <h4 class="panel-title">
+                                       <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBDS_tho_cu_Two" aria-expanded="true" aria-controls="collapseBDS_tho_cu_Two" style="padding: 10px 15px !important"> KẾT QUẢ </a>
+                                   </h4>
+                               </div>
+                               <div class="panel-body">
+                                    <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_dien_tich_biet_thu" style="vertical-align: top;">Diện tích đất (m2) </label>
+                                        <label class="inline_select_input label_value" id="value_dien_tich_biet_thu"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_dien_tich_san_biet_thu" style="vertical-align: top;">Diện tích sàn xây dựng (m2) </label>
+                                        <label class="inline_select_input label_value" id="value_dien_tich_san_biet_thu"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_don_gia_dat" style="vertical-align: top;">Đơn giá đất (đồng) </label>
+                                        <label class="inline_select_input label_value" id="value_don_gia_dat"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_don_gia_ctxd" data-toggle="tooltip" data-placement="bottom" title="Theo suất vốn đầu tư của Bộ Xây dựng" style="vertical-align: top;">Đơn giá CTXD (đồng) </label>
+                                        <label class="inline_select_input label_value" id="value_don_gia_ctxd"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_tong_gia_tho_biet_thu"  data-toggle="tooltip" data-placement="bottom" title="Bao gồm CTXD xây thô" style="vertical-align: top;">Tổng giá trị xây thô (đồng)</label>
+                                        <label class="inline_select_input label_value" id="value_tong_gia_tho_biet_thu"></label>
+                                        
+                                   </div>
+                                   <div class="inline_modal float-label-control" style="height: 8vh;">
+                                        <label class="inline_label" for="value_tong_gia_full_biet_thu"  data-toggle="tooltip" data-placement="bottom" title="Theo suất vốn đầu tư của Bộ Xây dựng" style="vertical-align: top; width: 30px">Tổng giá trị hoàn thiện (đồng)</label>
+                                        <label class="inline_select_input label_value" id="value_tong_gia_full_biet_thu"></label>
+                                        
+                                   </div>
+                               </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CHECK VI TRI -->
+    <script type="text/javascript">
+        var list_vi_tri = ['Vị trí 1',
+            'Vị trí 2',
+            'Vị trí 3',
+            'Vị trí 4'
+            ]
+        $("#vi_tri_bds_thi_truong").change(function() {
+            // TOGGLE 
+            if(list_vi_tri.indexOf($(this).val()) != -1 && $(this).val() != 'Vị trí 1' ){
+                $("#div_do_rong_ngo_thi_truong").css("display","")
+                $("#div_kcach_truc_chinh_thi_truong").css("display","")
+            }
+            else{
+                $("#div_do_rong_ngo_thi_truong").css("display","none")
+                $("#div_kcach_truc_chinh_thi_truong").css("display","none")
+            }
+            // EMPTY FIELD
+            empty_field()
+            // AJAX
+            $.getJSON($SCRIPT_ROOT + '/ajax_get_dac_diem_vi_tri', {
+                tinh_thanh: $(`#tinh_thanh_thi_truong`).val(),
+                vi_tri: $(this).val(),
+
+            }, function(data) {
+                console.log(data.loi_the)
+                $("#div_select_loi_the").empty()
+                $("#div_select_bat_loi").empty()
+                $.each(data.loi_the, function(i,r) {
+                    $("#div_select_loi_the").append(`
+                                <div class="inline_modal_3 float-label-control">                        
+                                    <input type="checkbox" id="check_box_loi_the${i}" value="${r}">
+                                    <label style="word-wrap: normal; word-break: break-word;width: 90%;vertical-align: top" for="check_box_loi_the${i}">${r}</label>                        
+                                </div>`)
+                })
+                $.each(data.bat_loi, function(i,r) {
+                    $("#div_select_bat_loi").append(`
+                        <div class="inline_modal_3 float-label-control">                        
+                            <input type="checkbox" id="check_box_bat_loi${i}" value="${r}">
+                            <label style="word-wrap: normal; word-break: break-word;width: 90%;vertical-align: top" for="check_box_bat_loi${i}">${r}</label>                        
+                        </div>`)
+                })
+                // ICHECKBOX
+                $('[id^="check_box_"]').iCheck({
+                    checkboxClass: 'icheckbox_square-red',
+                    increaseArea: '20%'
+                }) 
+
+                let dac_diem_vtri = ''
+                $.each(String(data.result).split("|"), function(i, r) {
+                    dac_diem_vtri += `<div style="margin-left: 10px;">${r}</div>`
+                })
+                $("#dac_diem_vi_tri_thi_truong").html(dac_diem_vtri)
+                        
+            });
+            return false;
+
+        })
+
+        
+    </script>
+    <script>     
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
+</form>

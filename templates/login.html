@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <link rel="shortcut icon" href="#" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>ADMIN</title>
+
+        <!-- Bootstrap -->
+        <link href="{{ url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="{{ url_for('static', filename='vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+      <!-- Custom Theme Style -->
+      <link href="{{ url_for('static', filename='build/css/custom.css') }}" rel="stylesheet">
+      
+  </head>
+  
+
+
+<style type="text/css">
+    .login_content form input[type="text"], .login_content form input[type="email"], .login_content form input[type="password"] {
+        box-shadow: none;
+    }
+    *{
+        /*border: 1px solid black;*/
+    }
+    .login_wrapper {
+        width: 60vw ; max-width: 100vw; text-align: center;
+    }
+    .inp_login {border-radius: 0;height: 40px;width: 36vw; background-color: rgba(217, 217, 217, 0.1);color: white;
+        font-size: 110%
+    }
+    .btn_login {
+        border-radius: 0; width: 36vw; margin-left: 9px;font-weight: bold;background-color: #a6100a; color: white;
+    }
+    .rainbow3 {
+        background-image: -webkit-linear-gradient(left, orange , white, orange); /* For Chrome and Safari */
+        background-image:    -moz-linear-gradient(left, orange , white, orange); /* For old Fx (3.6 to 15) */
+        background-image:     -ms-linear-gradient(left, orange , white, orange); /* For pre-releases of IE 10*/
+        background-image:      -o-linear-gradient(left, orange , white, orange); /* For old Opera (11.1 to 12.0) */
+        background-image:         linear-gradient(to right, orange , white, orange); /* Standard syntax; must be last */
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+</style>
+  <body style=" background-image:url(static/img/sml.jpg); background-size: 100% 100% no-repeat ;
+    background-color: black;height: 80vh;">
+
+
+
+    <div class="login_wrapper" style="text-align: center;">
+            <form method="post">
+                <div style="text-align: center;margin: 0 auto;margin-top: 20vh; width: 20vw; font-weight: bold; font-size: 60px " class="rainbow3">iJupiter </div>
+                <!-- USER -->
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 5vh;margin-left: 12vw; margin-bottom: 2vh;width: 40vw;">
+                    <input type="text" id="usn" name="usn" class="form-control has-feedback-left inp_login" placeholder="Tên đăng nhập">
+                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <!-- PASS -->
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback" style="margin-left: 12vw;width: 40vw;margin-bottom: 2vh;">
+                    <input type="password" id="pd" name="pd" class="form-control has-feedback-left inp_login" placeholder="Mật khẩu">
+                    <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                
+                <div style="margin-left: 12vw;width: 40vw;">
+                    <button type="submit" class="form-control btn_login" name="login" style="">ĐĂNG NHẬP</button>
+                    <!-- <a class="reset_pass" href="#">Quên mật khẩu?</a> -->
+                </div>
+
+
+                
+            </form>
+
+
+    </div>
+    <div class="" style="text-align: center;margin-top: 35vh;color:white;font-size: 120%">
+        <div>
+            <p>©2018 Bản quyền thuộc về Công ty TNHH Tư vấn BĐS Sao Mộc</p>
+        </div>
+    </div>
+</body>
+</html>

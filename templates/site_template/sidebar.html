@@ -1,0 +1,152 @@
+<div class="left_col scroll-view">
+  <div class="navbar nav_title" style="border: 0;">
+    <a href="" class="site_title"><i class="fa fa-spinner"></i> <span>Administrators</span></a>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <!-- menu profile quick info -->
+  <div class="profile clearfix">
+    <div class="profile_pic">
+      <!-- ANH ADMIN -->
+      <img src="/static/images/sml.jpg" width="" alt="..." class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+      <span>Welcome to SML</span>
+      <h2>  </h2>
+    </div>
+  </div>
+  <!-- /menu profile quick info -->
+
+  <br />
+
+  <!-- sidebar menu -->
+  <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+      <h3>General</h3>
+      <ul class="nav side-menu">
+        <!-- TRANG CHU -->
+        <li><a href="/admin"><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+        </li>
+
+        <!-- TIN TUC -->
+        <li><a><i class="fa fa-edit"></i> Tin tức <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/tin_tuc/danh_muc_tin_tuc">Danh mục tin tức</a></li>
+            <li><a href="/forms/form_advanced">Thêm mới danh mục</a></li>
+            <li><a href="/forms/form_validation">Danh sách tin tức</a></li>
+            <li><a href="/forms/form_wizards">Thêm mới danh sách</a></li>
+          </ul>
+        </li>
+        <!-- QUAN LY MENU -->
+        <li><a><i class="fa fa-desktop"></i> Quản lý Menu <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/ui/general_elements">Danh sách danh mục</a></li>
+            <li><a href="/ui/media_gallery">Thêm danh mục</a></li>
+          </ul>
+        </li>
+
+        <!-- QUAN LY QUANG CAO -->
+        <li><a><i class="fa fa-table"></i> Quản lý Quảng cáo <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/tables/tables">Danh sách</a></li>
+            <li><a href="/tables/tables_dynamic">Thêm mới</a></li>
+          </ul>
+        </li>
+
+        <!-- QUAN LY SLIDE -->
+        <li><a><i class="fa fa-bar-chart-o"></i> Quản lý Slideshow <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/data/chartjs">Danh sách</a></li>
+            <li><a href="/data/chartjs2">Thêm mới</a></li>
+          </ul>
+        </li>
+
+        <!-- TAI KHOAN -->
+        <li><a><i class="fa fa-clone"></i>Quản lý Tài khoản <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/user/quan_ly_user">Danh sách Tài khoản</a></li>
+            <li><a href="/user/tao_moi_user">Tạo mới</a></li>
+          </ul>
+        </li>
+
+        <!-- HOTLINE -->
+        <li><a><i class="fa fa-clone"></i>HOTLINE<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/fixed_sidebar">Danh sách Tài khoản</a></li>
+            <li><a href="/fixed_footer">Tạo mới</a></li>
+          </ul>
+        </li>
+
+        <!-- BANNER -->
+        <li><a><i class="fa fa-clone"></i>BANNER<span class="fa fa-chevron-down"></span></a>
+        </li>
+
+        <!-- THONG TIN LIEN HE -->
+        <li><a><i class="fa fa-clone"></i>Thông tin liên hệ<span class="fa fa-chevron-down"></span></a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- <div class="menu_section">
+      <h3>Live On</h3>
+      <ul class="nav side-menu">
+        <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/additional/e_commerce">E-commerce</a></li>
+            <li><a href="/additional/projects">Projects</a></li>
+            <li><a href="/additional/project_detail">Project Detail</a></li>
+            <li><a href="/additional/contacts">Contacts</a></li>
+            <li><a href="/additional/profile">Profile</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/page_403">403 Error</a></li>
+            <li><a href="/page_404">404 Error</a></li>
+            <li><a href="/page_500">500 Error</a></li>
+            <li><a href="/plain_page">Plain Page</a></li>
+            <li><a href="/login">Login Page</a></li>
+            <li><a href="/pricing_tables">Pricing Tables</a></li>
+          </ul>
+        </li>
+        <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+              <li><a href="#level1_1">Level One</a>
+              <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li class="sub_menu"><a href="/level2">Level Two</a>
+                  </li>
+                  <li><a href="#level2_1">Level Two</a>
+                  </li>
+                  <li><a href="#level2_2">Level Two</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#level1_2">Level One</a>
+              </li>
+          </ul>
+        </li>
+        <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+      </ul>
+    </div> -->
+  </div>
+  <!-- /sidebar menu -->
+
+  <!-- /menu footer buttons -->
+  <!-- <div class="sidebar-footer hidden-small">
+    <a data-toggle="tooltip" data-placement="top" title="Settings">
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </a>
+    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+      <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+    </a>
+    <a data-toggle="tooltip" data-placement="top" title="Lock">
+      <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+    </a>
+    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login">
+      <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+    </a>
+  </div> -->
+  <!-- /menu footer buttons -->
+</div>
