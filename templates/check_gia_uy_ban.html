@@ -168,7 +168,7 @@
                       if( r != 'NULL') {
                         
                           $("#div_result").append(`
-                              <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i.split("VT")[1]]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                              <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
                               <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
                       }
                     })
@@ -202,7 +202,7 @@
 
                 if( r != 'NULL') {                    
                     $("#div_result").append(`
-                        <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i.split("VT")[1]]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                        <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
                         <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
                 }
               })

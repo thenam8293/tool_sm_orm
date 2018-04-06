@@ -105,7 +105,7 @@
                     $("#result_quy_hoach").css("display", "")
 
                     let tt_qh = ''
-                    $.each(String(data.result.Thong_tin_quy_hoach).split("|"), function(i, r) {
+                    $.each(String(data.result[0]).split("|"), function(i, r) {
                         tt_qh += `<div style="margin-left: 10px;">${r}</div>`
                     })                       
 
@@ -387,9 +387,9 @@
                 }, function(data) { 
                     console.log(data.result)
                     $("#result_chung_cu").css("display", "")
-                    $("#value_dien_tich_cc_thi_truong").text(data.result.dien_tich)
-                    $("#value_loai_dien_tich_cc_thi_truong").text(data.result.loai_dien_tich)
-                    $("#value_don_gia_cc_thi_truong").text(dot_number(Math.round(data.result.don_gia)))
+                    $("#value_dien_tich_cc_thi_truong").text(data.result[0])
+                    $("#value_loai_dien_tich_cc_thi_truong").text(data.result[1])
+                    $("#value_don_gia_cc_thi_truong").text(dot_number(Math.round(data.result[2])))
                   });
                   return false;
             })
@@ -460,16 +460,14 @@
                         }, function(data) { 
                             $("#result_biet_thu").css("display", "")
                             console.log(data.result)
-                            console.log(data.result.dien_tich_dat)
-                            console.log(data.result.dien_tich_san_xay_dung)
-                            console.log(data.result.tong_gia_tri_xay_tho)
 
-                            $("#value_dien_tich_biet_thu").text(data.result.dien_tich_dat)
-                            $("#value_dien_tich_san_biet_thu").text(data.result.dien_tich_san_xay_dung)
-                            $("#value_tong_gia_tho_biet_thu").text(data.result.tong_gia_tri_xay_tho)
-                            $("#value_tong_gia_full_biet_thu").text(data.result.tong_gia_tri_hoan_thien)
-                            $("#value_don_gia_dat").text(dot_number(Math.round(data.result.don_gia_dat)))
-                            $("#value_don_gia_ctxd").text(dot_number(Math.round(data.result.don_gia_ctxd)))
+
+                            $("#value_dien_tich_biet_thu").text(data.result[0])
+                            $("#value_dien_tich_san_biet_thu").text(data.result[1])
+                            $("#value_tong_gia_tho_biet_thu").text(data.result[2])
+                            $("#value_tong_gia_full_biet_thu").text(data.result[3])
+                            $("#value_don_gia_dat").text(dot_number(Math.round(data.result[4])))
+                            $("#value_don_gia_ctxd").text(dot_number(Math.round(data.result[5])))
                           });
                           return false;
                     })

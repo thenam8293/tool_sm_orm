@@ -14,7 +14,6 @@ import json
 import sqlite3
 from functools import wraps
 
-app = Flask(__name__,static_url_path='/static')
 
 
 def hash_user(user):
@@ -27,33 +26,6 @@ def dt_to_str(x):
 def str_to_dt(x):
     return dt.datetime.strptime(x,'%m/%d/%Y')
 
-
-def sql_tool_sm(query,var=''):
-    connection = sqlite3.connect(r'static\DB\sm_tool.db')
-    cursor = connection.cursor()
-    # connection.text_factory = str
-    cursor.execute(query,var)
-    if query.lower()[:6] == 'select':
-        x = cursor.fetchall()
-        connection.close()
-        return x
-    elif query.lower()[:6] == 'create':
-        connection.close()
-    else:
-        connection.commit()
-        connection.close()
-
-# def sql_tool_sm(query,var=''):
-#     connection = pypyodbc.connect('Driver={SQL Server};Server=10.62.24.161\SQLEXPRESS;Database=tool_SM;uid=aos;pwd=aos159753')
-#     cursor = connection.cursor()
-#     cursor.execute(query,var)
-#     if query.lower().startswith('select') and not query.lower().startswith('select * into'):
-#         x = cursor.fetchall()
-#         cursor.close()
-#         return x
-#     else:
-#         cursor.commit()
-#         cursor.close()
 
 def List2Dict(list_):
     changed = []
@@ -120,5 +92,4 @@ def find_ko_dau(x, y):
 
 # ----------------- ISV -----------------
 # Thổ cư
-list_dia_chi = [r[0] for r in sql_tool_sm("select distinct Dia_chi from Data_MB order by 1")] 
 list_header = ['Case ID', u'Người yêu cầu', u'Đơn vị yêu cầu', u'Ngày gửi yêu cầu', u'Người khởi tạo', u'Thời gian khởi tạo']
