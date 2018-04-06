@@ -99,12 +99,13 @@
                 tuyen_duong: $(`#${tuyen_duong_id}`).val(),       
                 vi_tri_bds: $(this).val(),
 
-            }, function(data) {                    
+            }, function(data) {
+       
                 if(vi_tri_bds_id.split("vi_tri_bds_")[1] == 'tt_quy_hoach') {
                     $("#result_quy_hoach").css("display", "")
 
                     let tt_qh = ''
-                    $.each(String(data.result[0][0]).split("|"), function(i, r) {
+                    $.each(String(data.result.Thong_tin_quy_hoach).split("|"), function(i, r) {
                         tt_qh += `<div style="margin-left: 10px;">${r}</div>`
                     })                       
 
@@ -384,11 +385,11 @@
                     so_tang: $("#tang_cc_thi_truong").val(),
                     ma_can: $("#ma_can_cc_thi_truong").val(),
                 }, function(data) { 
+                    console.log(data.result)
                     $("#result_chung_cu").css("display", "")
-                    $("#value_dien_tich_cc_thi_truong").text(data.result[0][0])
-                    $("#value_loai_dien_tich_cc_thi_truong").text(data.result[0][1])
-                    $("#value_don_gia_cc_thi_truong").text(dot_number(Math.round(data.result[0][2])))
-                    $("#value_ghi_chu_cc_thi_truong").text(data.result[0][3])
+                    $("#value_dien_tich_cc_thi_truong").text(data.result.dien_tich)
+                    $("#value_loai_dien_tich_cc_thi_truong").text(data.result.loai_dien_tich)
+                    $("#value_don_gia_cc_thi_truong").text(dot_number(Math.round(data.result.don_gia)))
                   });
                   return false;
             })
@@ -459,12 +460,16 @@
                         }, function(data) { 
                             $("#result_biet_thu").css("display", "")
                             console.log(data.result)
-                            $("#value_dien_tich_biet_thu").text(data.result[0][0])
-                            $("#value_dien_tich_san_biet_thu").text(data.result[0][1])
-                            $("#value_tong_gia_tho_biet_thu").text(data.result[0][2])
-                            $("#value_tong_gia_full_biet_thu").text(data.result[0][3])
-                            $("#value_don_gia_dat").text(dot_number(Math.round(data.result[0][4])))
-                            $("#value_don_gia_ctxd").text(dot_number(Math.round(data.result[0][5])))
+                            console.log(data.result.dien_tich_dat)
+                            console.log(data.result.dien_tich_san_xay_dung)
+                            console.log(data.result.tong_gia_tri_xay_tho)
+
+                            $("#value_dien_tich_biet_thu").text(data.result.dien_tich_dat)
+                            $("#value_dien_tich_san_biet_thu").text(data.result.dien_tich_san_xay_dung)
+                            $("#value_tong_gia_tho_biet_thu").text(data.result.tong_gia_tri_xay_tho)
+                            $("#value_tong_gia_full_biet_thu").text(data.result.tong_gia_tri_hoan_thien)
+                            $("#value_don_gia_dat").text(dot_number(Math.round(data.result.don_gia_dat)))
+                            $("#value_don_gia_ctxd").text(dot_number(Math.round(data.result.don_gia_ctxd)))
                           });
                           return false;
                     })

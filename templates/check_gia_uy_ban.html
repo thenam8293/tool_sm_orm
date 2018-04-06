@@ -137,7 +137,7 @@
             return false;
       })
   // TUYEN DUONG AJAX
-  var list_vi_tri = ['Vị trí 1', 'Vị trí 2', 'Vị trí 3', 'Vị trí 4', 'Vị trí 5']
+  var list_vi_tri = ['Vị trí 0', 'Vị trí 1', 'Vị trí 2', 'Vị trí 3', 'Vị trí 4', 'Vị trí 5']
       $(document).on('change','[id="ten_duong1_uy_ban"]', function() {
           let ten_duong_id = $(this).attr("id")
           let tinh_thanh_id = `tinh_thanh1_uy_ban`
@@ -160,13 +160,15 @@
               $(`#${tuyen_duong_id}`).selectpicker("refresh").selectpicker("val","")
               // CHECK DOAN DUONG
               console.log(data.result[0])
+              console.log(data.value)
               if (data.result[0] == '') {
                 
-                    $.each(data.value[0], function(i, r) {
+                    $.each(data.value, function(i, r) {
+                      console.log(i)
                       if( r != 'NULL') {
                         
                           $("#div_result").append(`
-                              <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                              <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i.split("VT")[1]]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
                               <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
                       }
                     })
@@ -195,12 +197,12 @@
 
           }, function(data) { 
               console.log(data.result)
-              $.each(data.result[0], function(i, r) {
+              $.each(data.result, function(i, r) {
                     console.log(r)
 
                 if( r != 'NULL') {                    
                     $("#div_result").append(`
-                        <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
+                        <label class="inline_label_sm" style="vertical-align: top;"> ${list_vi_tri[i.split("VT")[1]]} <span style="font-style: italic;font-size: 90%;font-weight: normal;"> (đồng/m2) </span></label>
                         <label class="inline_select_input label_value" style="font-size: 180%">${dot_number(Math.round(parseInt(r)*1000))}</label>`)
                 }
               })
